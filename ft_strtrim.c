@@ -45,11 +45,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	strt;
 	size_t	size;
 
-	len = 0;
-	while (s1[len])
-	{
-		len++;
-	}
+	len = ft_strlen(s1);
 	strt = start(s1, set);
 	size = len - strt - end(s1, set, len);
 	ptr = (char *)malloc((size + 1) * sizeof(char));
@@ -64,12 +60,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	ptr[len] = '\0';
 	return (ptr);
 }
-
-// int main (void) {
-//     char *str = "82 21Hello, World!2422 1";
-//     char *set = "0123456789 ";
-//     char *ptr = ft_strtrim(str, set);
-//     printf("%s\n", ptr);
-//     free(ptr);
-//     return 0;
-// }

@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stddef.h>
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -19,9 +18,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	i;
 	size_t	j;
 
-	i = ft_strlen(s1);
-	j = ft_strlen(s1);
-	ptr = (char *)malloc((i + j + 1) * sizeof(char));
+	ptr = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
 	if (ptr == NULL)
 		return (NULL);
 	i = 0;
