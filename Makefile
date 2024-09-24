@@ -10,7 +10,6 @@ SRC = ft_isalpha.c \
 	ft_isascii.c \
 	ft_isprint.c \
 	ft_strlen.c \
-	ft_strnlen.c \
 	ft_memset.c \
 	ft_bzero.c \
 	ft_memcpy.c \
@@ -37,30 +36,8 @@ SRC = ft_isalpha.c \
 	ft_striteri.c \
 	ft_putchar_fd.c \
 	ft_putstr_fd.c \
-	ft_putnbr_fd.c \
 	ft_putendl_fd.c \
-	ft_printf.c \
-	ft_print_c.c \
-	ft_print_s.c \
-	ft_print_d.c \
-	ft_print_u.c \
-	ft_print_p.c \
-	ft_print_x.c \
-	get_next_line.c \
-	ft_putchar.c \
-	ft_putstr.c \
-	ft_putnbr.c \
-	ft_strcmp.c \
-	ft_strstr.c \
-	ft_strcpy.c \
-	ft_strncpy.c \
-	ft_strcat.c \
-	ft_strncat.c \
-	ft_memccpy.c \
-	ft_strchr.c \
-	ft_strisdigit.c \
-	ft_atol.c \
-	ft_pow.c
+	ft_putnbr_fd.c \
 
 SRCB = ft_lstnew_bonus.c \
 	ft_lstadd_front_bonus.c \
@@ -82,8 +59,10 @@ all: $(NAME)
 	$(CC) -I. $(CCFLAGS) -o $@ -c $?
 
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
-	ranlib $(NAME)
+	ar rc $(NAME) $(OBJS)
+
+bonus: $(OBJS) $(OBJSB)
+	ar rc $(NAME) $(OBJS) $(OBJSB)
 
 clean:
 	rm -f $(OBJS) $(OBJSB)
