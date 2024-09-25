@@ -49,7 +49,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	len = ft_strlen(s1);
 	strt = start(s1, set);
-	size = len - strt - end(s1, set, len);
+	if (strt == len)
+		size = 0;
+	else
+		size = len - strt - end(s1, set, len);
 	ptr = (char *)malloc((size + 1) * sizeof(char));
 	if (ptr == NULL)
 		return (NULL);
