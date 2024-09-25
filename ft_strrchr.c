@@ -18,6 +18,8 @@ char	*ft_strrchr(const char *s, int c)
 
 	if (!s)
 		return (NULL);
+	if (c < 0 || c > 255)
+		return ((char *)s);
 	last = NULL;
 	while (*s)
 	{
