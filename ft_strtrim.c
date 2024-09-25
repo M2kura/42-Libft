@@ -45,6 +45,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	strt;
 	size_t	size;
 
+	if (!s1 || !set)
+		return (NULL);
 	len = ft_strlen(s1);
 	strt = start(s1, set);
 	size = len - strt - end(s1, set, len);
