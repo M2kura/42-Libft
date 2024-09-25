@@ -12,32 +12,15 @@
 
 #include "libft.h"
 
-static int	count_len(int n)
+void write2string(char *str, int n, int len)
 {
-	int	len;
-
-	len = 0;
-	if (n == 0)
-		return (1);
-	if (n < 0)
-		len++;
-	while (n)
+	str[len] = '\0';
+	if (n == -2147483648)
 	{
+		len--;
+		str[len] = '8';
 		n /= 10;
-		len++;
 	}
-	return (len);
-}
-
-char	*ft_itoa(int n)
-{
-	char	*str;
-	int		len;
-
-	len = count_len(n);
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (!str)
-		return (NULL);
 	if (n < 0)
 	{
 		str[0] = '-';
@@ -45,12 +28,30 @@ char	*ft_itoa(int n)
 	}
 	if (n == 0)
 		str[0] = '0';
-	str[len] = '\0';
 	while (n > 0)
 	{
 		str[len - 1] = n % 10 + '0';
 		n /= 10;
 		len--;
 	}
+}
+
+char	*ft_itoa(int n)
+{
+	int temp;
+	char	*str;
+	int		len;
+
+	len = n <= 0 ? 1 : 0;
+	temp = n;
+	while (temp)
+	{
+		temp /= 10;
+		len++;
+	}
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (NULL);
+	write2string(str, n, len);
 	return (str);
 }
