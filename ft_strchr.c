@@ -16,6 +16,8 @@ char	*ft_strchr(const char *s, int c)
 {
 	if (!s)
 		return (NULL);
+	if (c < 0 || c > 255)
+		return ((char *)s);
 	while (*s)
 	{
 		if (*s == c)
