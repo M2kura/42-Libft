@@ -21,10 +21,7 @@ char	*ft_strdup(const char *s1)
 		return (NULL);
 	ptr = (char *)malloc((ft_strlen(s1) + 1) * sizeof(char));
 	if (ptr == NULL)
-	{
-		errno = ENOMEM;
 		return (NULL);
-	}
 	i = 0;
 	while (s1[i])
 	{
