@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void write2string(char *str, int n, int len)
+void	write2string(char *str, int n, int len)
 {
 	str[len] = '\0';
 	if (n == -2147483648)
@@ -38,11 +38,14 @@ void write2string(char *str, int n, int len)
 
 char	*ft_itoa(int n)
 {
-	int temp;
+	int		temp;
 	char	*str;
 	int		len;
 
-	len = n <= 0 ? 1 : 0;
+	if (n <= 0)
+		len = 1;
+	else
+		len = 0;
 	temp = n;
 	while (temp)
 	{
