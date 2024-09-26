@@ -21,12 +21,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (!s)
 		return (NULL);
-	if (ft_strlen(s) < start)
+	if (ft_strlen(s) <= start)
 		len = 0;
-	if (ft_strlen(s) > len)
-		size = len;
+	if (ft_strlen(s) - start < len)
+		size = ft_strlen(s) - start;
 	else
-		size = ft_strlen(s);
+		size = len;
 	ptr = (char *)malloc((size + 1) * sizeof(char));
 	if (ptr == NULL)
 		return (NULL);
