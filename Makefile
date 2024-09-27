@@ -1,8 +1,6 @@
 NAME = libft.a
 
-CC = cc
-
-CFLAGS = -Wall -Wextra -Werror
+CC = cc -Wall -Wextra -Werror
 
 SRC = ft_isalpha.c \
 	ft_isdigit.c \
@@ -56,7 +54,7 @@ OBJSB := $(SRCB:%.c=%.o)
 all: $(NAME)
 
 %.o: %.c
-	$(CC) -I. $(CCFLAGS) -o $@ -c $?
+	$(CC) -I. -o $@ -c $?
 
 $(NAME): $(OBJS)
 	ar rc $(NAME) $(OBJS)
