@@ -18,6 +18,10 @@
 # include <unistd.h>
 # include <stdarg.h>
 
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 420
+# endif
+
 // Libft main fuctions
 
 int		ft_isalpha(int c);
@@ -76,5 +80,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 // Functions from other projects
 
 int		ft_printf(const char *str, ...);
+char	*get_next_line(int fd);
 
 #endif
